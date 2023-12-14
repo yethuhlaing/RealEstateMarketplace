@@ -1,0 +1,73 @@
+@baseurl = {{$dotenv BASE_URL}}
+@signupurl = {{$dotenv BASE_URL}}/api/auth/signup
+@gitlab_project = {{$dotenv GITLAB_PROJECT}}
+
+### GET baseurl
+GET {{baseurl}}/
+
+### POST auth
+POST {{signupurl}}/
+Content-Type: application/json
+
+{
+    "username": "a",
+    "email": "fd",
+    "password": "adffrf"
+}
+
+
+# ### POST login credentials
+
+# # @name login
+# POST {{apiurl}}/login HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "username": "{{$dotenv ADMIN_USER}}",
+#     "password": "{{$dotenv ADMIN_PASS}}"
+# }
+
+# ### GET admin status - admin
+# @authToken = {{login.response.headers.Authorization}}
+
+# GET {{apiurl}}/admin/
+# Authorization: {{authToken}}
+
+# ### GET admin status - invalid
+# GET {{apiurl}}/admin/
+
+# ### POST login credentials invalid
+
+# # @name login
+# POST {{apiurl}}/login HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "username": "admin",
+#     "password": "wrongPassword"
+# }
+
+# ### GET resource that doesn't exist
+# GET {{apiurl}}/nonexisting HTTP/1.1
+
+# ### GET static file that doesn't exist
+# GET {{baseurl}}/nonexisting HTTP/1.1
+
+# ### GET admin status - Jane faulty code
+# GET {{apiurl}}/admin/
+# Authorization: Bearer LyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4iLCJpYXQiOjE3MDAwNDY5NDcsImV4cCI6MTcwMDY1MTc0NywiaXNzIjoiZGV2b3BzX2hvc3QifQ.cvrbnZy1Al7D0htpvSAnnYgdGDMiaEj4-UfXG8Idd6w
+
+# ### GET releases from gitlab
+# GET https://gitlab.com/api/v4/projects/{{$dotenv GITLAB_PROJECT}}/releases
+
+# ### GET releases from adminpanel api
+# @authToken = {{login.response.headers.Authorization}}
+
+# GET {{apiurl}}/admin/releases
+# Authorization: {{authToken}}
+
+# ### GET release with query param tag_name
+# @authToken = {{login.response.headers.Authorization}}
+
+# GET {{apiurl}}/admin/install?tag_name=v0.0.2-beta.1
+# Authorization: {{authToken}}
