@@ -1,5 +1,6 @@
 @baseurl = {{$dotenv BASE_URL}}
 @signupurl = {{$dotenv BASE_URL}}/api/auth/signup
+@signinurl = {{$dotenv BASE_URL}}/api/auth/signin
 @gitlab_project = {{$dotenv GITLAB_PROJECT}}
 
 ### GET baseurl
@@ -7,6 +8,16 @@ GET {{baseurl}}/
 
 ### POST auth
 POST {{signupurl}}/
+Content-Type: application/json
+
+{
+    "username": "a",
+    "email": "fd",
+    "password": "adffrf"
+}
+
+### POST auth
+POST {{signinurl}}/
 Content-Type: application/json
 
 {
