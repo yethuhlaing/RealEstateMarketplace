@@ -8,4 +8,4 @@ npm i react-router-dom
 npm i react-icons
 
 npm install @reduxjs/toolkit react-redux
-
+npm i redux-persist
