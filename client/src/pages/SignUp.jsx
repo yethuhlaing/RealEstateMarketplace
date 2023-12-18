@@ -25,6 +25,7 @@ export default function SignUp() {
           },
           body: JSON.stringify(formData)
         })
+      console.log(res)
       const data = await res.json();
       if (data.success === false) {
         setLoading(false)
@@ -36,9 +37,8 @@ export default function SignUp() {
       navigate('/sign-in')
     } catch (error) {
       setLoading(false);
-      setError(error.message);
+      setError("Your username or email address is already taken");
     }
-
   };
 
   return (
@@ -54,7 +54,7 @@ export default function SignUp() {
       </form>
       <div className='flex gap-2 mt-5'>
         <p>Have an account?</p>
-        <Link to={"sign-in"}>
+        <Link to={"/sign-in"}>
           <span className='text-blue-700'>Sign In</span>
         </Link>
       </div>
