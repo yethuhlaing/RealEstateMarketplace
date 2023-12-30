@@ -5,6 +5,8 @@
 @updateinurl = {{$dotenv BASE_URL}}/api/user/update/658f6c9e478fd208f93fe125
 @deleteurl = {{$dotenv BASE_URL}}/api/user/delete/658f6c9e478fd208f93fe125
 @signouturl = {{$dotenv BASE_URL}}/api/auth/signout
+
+@createListing = {{$dotenv BASE_URL}}/api/listing/createListing
 ### GET baseurl
 GET {{testurl}}
 
@@ -40,3 +42,23 @@ DELETE {{deleteurl}}
 
 ### SignOut
 GET {{signouturl}} 
+
+### POST
+POST {{createListing}}
+Content-Type: application/json
+
+{
+    "name": "test",
+    "description": "test",
+    "address": "test",
+    "regularPrice": 500,
+    "discountPrice": 500,
+    "bathrooms": 5,
+    "bedrooms": 5,
+    "furnished": true,
+    "parking": false,
+    "type": "rent",
+    "offer": true,
+    "imageUrl": ["adfs","asdf"],
+    "userRef": "adsfadfadfadsf"
+}
