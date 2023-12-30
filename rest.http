@@ -1,27 +1,39 @@
 @baseurl = {{$dotenv BASE_URL}}
+@testurl = {{$dotenv BASE_URL}}/api/user/test
 @signupurl = {{$dotenv BASE_URL}}/api/auth/signup
 @signinurl = {{$dotenv BASE_URL}}/api/auth/signin
-@gitlab_project = {{$dotenv GITLAB_PROJECT}}
+@updateinurl = {{$dotenv BASE_URL}}/api/user/update/658f6c9e478fd208f93fe125
+@deleteurl = {{$dotenv BASE_URL}}/api/user/delete/658f6c9e478fd208f93fe125
 
 ### GET baseurl
-GET {{baseurl}}/
+GET {{testurl}}
 
 ### POST auth
 POST {{signupurl}}/
 Content-Type: application/json
 
 {
-    "username": "a",
-    "email": "fd",
-    "password": "adffrf"
+    "username": "testing",
+    "email": "testing",
+    "password": "testing"
 }
 
 ### POST auth
-POST {{signinurl}}/
+POST {{signinurl}}
 Content-Type: application/json
 
 {
-    "username": "a",
-    "email": "fd",
-    "password": "adffrf"
+    "email": "testing",
+    "password": "testing"
 }
+
+### Update 
+POST {{updateinurl}}
+Content-Type: application/json
+
+{
+    "password": "test"
+}
+
+### DElete
+DELETE {{deleteurl}}
