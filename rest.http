@@ -4,7 +4,7 @@
 @signinurl = {{$dotenv BASE_URL}}/api/auth/signin
 @updateinurl = {{$dotenv BASE_URL}}/api/user/update/658f6c9e478fd208f93fe125
 @deleteurl = {{$dotenv BASE_URL}}/api/user/delete/658f6c9e478fd208f93fe125
-
+@signouturl = {{$dotenv BASE_URL}}/api/auth/signout
 ### GET baseurl
 GET {{testurl}}
 
@@ -23,7 +23,7 @@ POST {{signinurl}}
 Content-Type: application/json
 
 {
-    "email": "testing",
+    "email": "testing@gmail.com",
     "password": "testing"
 }
 
@@ -37,3 +37,6 @@ Content-Type: application/json
 
 ### DElete
 DELETE {{deleteurl}}
+
+### SignOut
+GET {{signouturl}} 

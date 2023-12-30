@@ -8,7 +8,10 @@ import {
   updateUserFailure,
   deleteUserFailure,
   deleteUserSuccess,
-  deleteUserStart
+  deleteUserStart,
+  signOutUserStart,
+  signOutUserFailure,
+  signOutUserSuccess
 } from '../redux/user/userSlice.js';
 
 export default function Profile() {
@@ -97,6 +100,20 @@ export default function Profile() {
       dispatch(deleteUserFailure(error.message));
     }
   };
+  const handleSignOutUser = async () => {
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch("/api/auth/signout");
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(signOutUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(signOutUserFailure(error.message));
+    }
+  };
   return (
     <div className='p-3 max-w-lg mx-auto'>
       <input type="file" ref={fileRef} hidden accept='image/*' onChange={(e) => setFile(e.target.files[0])}/>
@@ -141,7 +158,7 @@ export default function Profile() {
       </form>
       <div className='flex justify-between mt-3'>
         <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'>Delete Account</span>
-        <span className='text-red-700 cursor-pointer'>Sign Out</span>
+        <span onClick={handleSignOutUser} className='text-red-700 cursor-pointer'>Sign Out</span>
       </div>
       <p className='text-red-700 mt-5'>{error ? error : ''}</p>
       <p className='text-green-700 mt-5'>   
