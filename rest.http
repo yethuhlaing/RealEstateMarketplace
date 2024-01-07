@@ -2,11 +2,11 @@
 @testurl = {{$dotenv BASE_URL}}/api/user/test
 @signupurl = {{$dotenv BASE_URL}}/api/auth/signup
 @signinurl = {{$dotenv BASE_URL}}/api/auth/signin
-@updateinurl = {{$dotenv BASE_URL}}/api/user/update/658f6c9e478fd208f93fe125
-@deleteurl = {{$dotenv BASE_URL}}/api/user/delete/658f6c9e478fd208f93fe125
+@updateinurl = {{$dotenv BASE_URL}}/api/user/update/65907695dc131054e1ae2b46
+@deleteurl = {{$dotenv BASE_URL}}/api/user/delete/65907695dc131054e1ae2b46
 @signouturl = {{$dotenv BASE_URL}}/api/auth/signout
-
 @createListing = {{$dotenv BASE_URL}}/api/listing/createListing
+@userlistingurl= {{$dotenv BASE_URL}}/api/user/listings/65907695dc131054e1ae2b46
 ### GET baseurl
 GET {{testurl}}
 
@@ -60,5 +60,7 @@ Content-Type: application/json
     "type": "rent",
     "offer": true,
     "imageUrl": ["adfs","asdf"],
-    "userRef": "adsfadfadfadsf"
+    "userRef": "65907695dc131054e1ae2b46"
 }
+### GET USERLISTINGS
+GET {{userlistingurl}} 
