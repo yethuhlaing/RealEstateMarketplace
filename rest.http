@@ -9,7 +9,7 @@
 @userlistingurl= {{$dotenv BASE_URL}}/api/user/listing/65907695dc131054e1ae2b46
 @deleteuserlistingurl = {{$dotenv BASE_URL}}/api/user/listing/delete/
 @updateuserlistingurl = {{$dotenv BASE_URL}}/api/user/listing/update/
-
+@getuserlistingurl = {{$dotenv BASE_URL}}/api/listing/get/
 ### GET baseurl
 GET {{testurl}}
 
@@ -90,3 +90,6 @@ Content-Type: application/json
     "imageUrl": ["adfs","asdf"],
     "userRef": "65907695dc131054e1ae2b46"
 }
+
+### GET Userlisting
+GET {{getuserlistingurl}}/userlisting_ID
