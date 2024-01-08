@@ -7,6 +7,7 @@
 @signouturl = {{$dotenv BASE_URL}}/api/auth/signout
 @createListing = {{$dotenv BASE_URL}}/api/listing/createListing
 @userlistingurl= {{$dotenv BASE_URL}}/api/user/listings/65907695dc131054e1ae2b46
+@deleteuserlistingurl = {{$dotenv BASE_URL}}/api/user/listings/delete/
 ### GET baseurl
 GET {{testurl}}
 
@@ -64,3 +65,6 @@ Content-Type: application/json
 }
 ### GET USERLISTINGS
 GET {{userlistingurl}} 
+
+### DELETE LISTINGS
+DELETE {{deleteuserlistingurl}}/
