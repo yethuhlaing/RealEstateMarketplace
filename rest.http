@@ -6,8 +6,10 @@
 @deleteurl = {{$dotenv BASE_URL}}/api/user/delete/65907695dc131054e1ae2b46
 @signouturl = {{$dotenv BASE_URL}}/api/auth/signout
 @createListing = {{$dotenv BASE_URL}}/api/listing/createListing
-@userlistingurl= {{$dotenv BASE_URL}}/api/user/listings/65907695dc131054e1ae2b46
-@deleteuserlistingurl = {{$dotenv BASE_URL}}/api/user/listings/delete/
+@userlistingurl= {{$dotenv BASE_URL}}/api/user/listing/65907695dc131054e1ae2b46
+@deleteuserlistingurl = {{$dotenv BASE_URL}}/api/user/listing/delete/
+@updateuserlistingurl = {{$dotenv BASE_URL}}/api/user/listing/update/
+
 ### GET baseurl
 GET {{testurl}}
 
@@ -67,4 +69,24 @@ Content-Type: application/json
 GET {{userlistingurl}} 
 
 ### DELETE LISTINGS
-DELETE {{deleteuserlistingurl}}/
+DELETE {{deleteuserlistingurl}}/userlisting_ID
+
+### UPDATE LISTINGS
+POST {{updateuserlistingurl}}/userlisting_ID
+Content-Type: application/json
+
+{
+    "name": "test",
+    "description": "test",
+    "address": "test",
+    "regularPrice": 500,
+    "discountPrice": 500,
+    "bathrooms": 5,
+    "bedrooms": 5,
+    "furnished": true,
+    "parking": false,
+    "type": "rent",
+    "offer": true,
+    "imageUrl": ["adfs","asdf"],
+    "userRef": "65907695dc131054e1ae2b46"
+}
