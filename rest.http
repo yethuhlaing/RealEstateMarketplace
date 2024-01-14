@@ -7,9 +7,10 @@
 @signouturl = {{$dotenv BASE_URL}}/api/auth/signout
 @createListing = {{$dotenv BASE_URL}}/api/listing/createListing
 @userlistingurl= {{$dotenv BASE_URL}}/api/user/listing/65907695dc131054e1ae2b46
-@deleteuserlistingurl = {{$dotenv BASE_URL}}/api/user/listing/delete/
-@updateuserlistingurl = {{$dotenv BASE_URL}}/api/user/listing/update/
-@getuserlistingurl = {{$dotenv BASE_URL}}/api/listing/get/
+@deleteuserlistingurl = {{$dotenv BASE_URL}}/api/user/listing/delete/userlisting_ID
+@updateuserlistingurl = {{$dotenv BASE_URL}}/api/user/listing/update/userlisting_ID
+@getuserlistingurl = {{$dotenv BASE_URL}}/api/listing/get/userlisting_ID
+@searchlistingsurl = {{$dotenv BASE_URL}}/api/listing/get?searchTerm=tes
 ### GET baseurl
 GET {{testurl}}
 
@@ -69,10 +70,10 @@ Content-Type: application/json
 GET {{userlistingurl}} 
 
 ### DELETE LISTINGS
-DELETE {{deleteuserlistingurl}}/userlisting_ID
+DELETE {{deleteuserlistingurl}}
 
 ### UPDATE LISTINGS
-POST {{updateuserlistingurl}}/userlisting_ID
+POST {{updateuserlistingurl}}
 Content-Type: application/json
 
 {
@@ -92,4 +93,7 @@ Content-Type: application/json
 }
 
 ### GET Userlisting
-GET {{getuserlistingurl}}/userlisting_ID
+GET {{getuserlistingurl}}
+
+### GET Userlistings
+GET {{searchlistingsurl}}
