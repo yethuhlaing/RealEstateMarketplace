@@ -11,3 +11,4 @@ npm install @reduxjs/toolkit react-redux
 npm i redux-persist
 npm install firebase
 npm i swiper
+npm install -D @tailwindcss/line-clamp
