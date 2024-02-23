@@ -103,7 +103,7 @@ function CreateListing() {
       })
     }
     else{
-      setImageUploadError("You can only Upload 6 Images per llisting!")
+      setImageUploadError("You can only Upload 6 Images per listing!")
       setUploading(false)
     }
   }

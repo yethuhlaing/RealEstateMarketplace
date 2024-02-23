@@ -128,7 +128,7 @@ export default function Profile() {
       }
       setUserListings(data)
     } catch (error) {
-      setShowListingError(error)
+      setShowListingError(error) 
     }
   }
   const handleListingDelete = async (listingId) => {
