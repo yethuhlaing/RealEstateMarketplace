@@ -10,8 +10,7 @@ import CreateListing from './pages/CreateListing'
 import UpdateListing from './pages/UpdateListing'
 import Listing from './pages/Listing'
 import Search from './pages/Search';
-import Header from './components/header';
-
+import Header from './components/Header';
 export default function App() {
   return<BrowserRouter>
     <Header />
